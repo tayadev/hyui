@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitest/config';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
+import { playwright } from '@vitest/browser-playwright'
 
 export default defineConfig({
   plugins: [
@@ -13,8 +14,7 @@ export default defineConfig({
     browser: {
       enabled: true,
       headless: true,
-      name: 'chromium',
-      provider: 'playwright',
+      provider: playwright(),
     },
     setupFiles: ['./.storybook/vitest.setup.ts'],
   },
