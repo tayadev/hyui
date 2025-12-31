@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useId } from 'react';
 import './input.css';
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /** Input label */
   label?: string;
   /** Error message to display */
@@ -25,7 +25,8 @@ export const Input = ({
   id,
   ...props
 }: InputProps) => {
-  const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
+  const generatedId = useId();
+  const inputId = id || generatedId;
   const sizeClass = `input__field--${size}`;
   const errorClass = error ? 'input__field--error' : '';
   const fullWidthClass = fullWidth ? 'input--full-width' : '';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import './radio.css';
 
 export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
@@ -16,7 +16,8 @@ export const Radio = ({
   id,
   ...props
 }: RadioProps) => {
-  const radioId = id || `radio-${Math.random().toString(36).substr(2, 9)}`;
+  const generatedId = useId();
+  const radioId = id || generatedId;
   const sizeClass = `radio--${size}`;
 
   return (

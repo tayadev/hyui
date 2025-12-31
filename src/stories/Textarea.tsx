@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import './textarea.css';
 
 export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -25,7 +25,8 @@ export const Textarea = ({
   id,
   ...props
 }: TextareaProps) => {
-  const textareaId = id || `textarea-${Math.random().toString(36).substr(2, 9)}`;
+  const generatedId = useId();
+  const textareaId = id || generatedId;
   const sizeClass = `textarea__field--${size}`;
   const errorClass = error ? 'textarea__field--error' : '';
   const fullWidthClass = fullWidth ? 'textarea--full-width' : '';

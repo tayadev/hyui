@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import './header.css';
-import { Button } from './Button';
-import { IconButton } from './IconButton';
+
+export interface NavItem {
+  label: string;
+  href: string;
+  active?: boolean;
+}
 
 export interface HeaderProps {
   /** Logo text or image */
   logo?: React.ReactNode;
   /** Navigation items */
-  navItems?: { label: string; href: string; active?: boolean }[];
+  navItems?: NavItem[];
   /** Right side actions */
   actions?: React.ReactNode;
   /** Sticky header */

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import './select.css';
 
 export interface SelectOption {
@@ -37,7 +37,8 @@ export const Select = ({
   id,
   ...props
 }: SelectProps) => {
-  const selectId = id || `select-${Math.random().toString(36).substr(2, 9)}`;
+  const generatedId = useId();
+  const selectId = id || generatedId;
   const sizeClass = `select__field--${size}`;
   const errorClass = error ? 'select__field--error' : '';
   const fullWidthClass = fullWidth ? 'select--full-width' : '';

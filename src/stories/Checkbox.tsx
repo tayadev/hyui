@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import './checkbox.css';
 
 export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
@@ -19,7 +19,8 @@ export const Checkbox = ({
   id,
   ...props
 }: CheckboxProps) => {
-  const checkboxId = id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
+  const generatedId = useId();
+  const checkboxId = id || generatedId;
   const sizeClass = `checkbox--${size}`;
   const errorClass = error ? 'checkbox--error' : '';
 
