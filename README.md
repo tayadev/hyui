@@ -4,7 +4,8 @@ A modern React component library inspired by Hytale's stunning design language. 
 
 ## TODO
 
-what font do we use? The others have been using hebden incised, but we dont actually have a license for it. https://www.lewismcguffie.com/Hebden-Typeface-1
+- what font do we use? The others have been using hebden incised, but we dont actually have a license for it. https://www.lewismcguffie.com/Hebden-Typeface-1
+- publish on npm
 
 ## Installation
 
