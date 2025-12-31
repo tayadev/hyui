@@ -1,21 +1,29 @@
 import { defineConfig } from 'vitest/config';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
-import { playwright } from '@vitest/browser-playwright'
+import { playwright } from '@vitest/browser-playwright';
 
+// More info at: https://storybook.js.org/docs/writing-tests/vitest-plugin
 export default defineConfig({
-  plugins: [
-    storybookTest({
-      // This should match your Storybook config directory
-      storybookScript: 'bun run storybook',
-    }),
-  ],
   test: {
-    name: 'storybook',
-    browser: {
-      enabled: true,
-      headless: true,
-      provider: playwright(),
-    },
-    setupFiles: ['./.storybook/vitest.setup.ts'],
+    projects: [
+      {
+        extends: true,
+        plugins: [
+          storybookTest({
+            configDir: '.storybook',
+          }),
+        ],
+        test: {
+          name: 'storybook',
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: playwright(),
+            instances: [{ browser: 'chromium' }],
+          },
+          setupFiles: ['./.storybook/vitest.setup.ts'],
+        },
+      },
+    ],
   },
 });
