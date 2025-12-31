@@ -30,9 +30,6 @@ jobs:
       - name: Lint
         run: bun run lint
 
-      - name: Build Storybook
-        run: bun run build-storybook
-
       - name: Run Storybook tests
         run: bun run test-storybook
 

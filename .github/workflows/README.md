@@ -35,8 +35,7 @@ Automatically deploys Storybook to GitHub Pages on every push to `main`.
    - Installs dependencies with Bun
    - Installs Playwright browsers for testing
    - Runs linting (`bun run lint`)
-   - Builds Storybook (`bun run build-storybook`)
-   - Runs Storybook tests (`bun run test-storybook`)
+   - Runs Storybook tests with Vitest (`bun run test-storybook`)
    - Builds the library (`bun run build`)
 
 2. **Build and Verify**
@@ -63,25 +62,23 @@ bunx playwright install --with-deps chromium
 # Run linting
 bun run lint
 
-# Build Storybook
-bun run build-storybook
-
-# Run Storybook tests (requires Storybook to be built first)
+# Run Storybook tests with Vitest
 bun run test-storybook
 
 # Build library
 bun run build
 ```
 
-## Test Runner
+## Storybook Testing with Vitest
 
-The project uses `@storybook/test-runner` which:
+The project uses Vitest with the `@storybook/addon-vitest` which:
 - Runs all Storybook stories as tests
+- Automatically starts Storybook during testing (no need to build/serve separately)
 - Verifies stories render without errors
-- Can include custom accessibility and interaction tests
-- Uses Playwright under the hood
+- Supports browser testing via Playwright
+- Enables component testing directly in Storybook
 
-Configuration: `.storybook/test-runner.ts`
+Configuration: `vitest.config.ts` and `.storybook/vitest.setup.ts`
 
 ## Notes
 
