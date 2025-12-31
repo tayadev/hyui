@@ -48,3 +48,8 @@
   padding: var(--button-padding-lg);
   font-size: var(--font-size-md);
 }
+
+.storybook-button--full-width {
+  display: block;
+  width: 100%;
+}
