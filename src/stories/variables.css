@@ -1,0 +1,102 @@
+/* Global Design System Variables */
+
+/* @font-face {
+  font-family: 'Hebden Incised';
+  src: url('/Hebden-Incised.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Sekuya&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+
+:root {
+  /* Colors - Primary */
+  --color-primary: #FCE06F;
+  --color-primary-hover: #FAD155;
+  --color-primary-dark: #DFB14A;
+
+  /* Colors - Secondary */
+  --color-secondary: #1F2C40;
+  --color-secondary-hover: #26354D;
+  --color-secondary-dark: #152845;
+  --color-secondary-border: #28384D;
+
+  /* Colors - Text */
+  --color-text-primary: #222929;
+  --color-text-secondary: #D8E2F0;
+  --color-text-muted: #A8B8C8;
+  --color-text-light: #666666;
+
+  /* Colors - Neutral */
+  --color-border: #e0e0e0;
+  --color-background-light: #ffffff;
+  --color-background-dark: #333333;
+
+  /* Typography */
+  --font-primary: 'Lexend', sans-serif;
+  --font-secondary: 'Nunito Sans', sans-serif;
+
+  /* Font Weights */
+  --font-weight-normal: 500;
+  --font-weight-bold: 700;
+
+  /* Font Sizes */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 3em;
+
+  /* Transitions */
+  --transition-default: all 0.3s ease;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  /* Button Padding */
+  --button-padding-sm: 10px 16px;
+  --button-padding-md: 11px 20px;
+  --button-padding-lg: 12px 24px;
+  --button-padding-default: 14px 32px;
+
+  /* Icon Button Sizes */
+  --icon-button-size-sm: 32px;
+  --icon-button-size-md: 48px;
+  --icon-button-size-lg: 64px;
+
+  /* Icon Sizes */
+  --icon-size-sm: 16px;
+  --icon-size-md: 24px;
+  --icon-size-lg: 32px;
+
+  /* Borders */
+  --border-width-sm: 1px;
+  --border-width-md: 2px;
+
+  /* Animation Scale */
+  --scale-active: 0.95;
+  --scale-hover-card: 0.98;
+
+  /* Decal Offset */
+  --decal-offset: 4px;
+}

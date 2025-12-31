@@ -1,0 +1,92 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: bunx playwright install --with-deps chromium
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Build Storybook
+        run: bun run build-storybook
+
+      - name: Run Storybook tests
+        run: bun run test-storybook
+
+      - name: Build library
+        run: bun run build
+
+  build:
+    name: Build and Verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build library
+        run: bun run build
+
+      - name: Verify build outputs
+        run: |
+          if [ ! -f "dist/hyui.mjs" ]; then
+            echo "Error: dist/hyui.mjs not found"
+            exit 1
+          fi
+          if [ ! -f "dist/hyui.cjs" ]; then
+            echo "Error: dist/hyui.cjs not found"
+            exit 1
+          fi
+          if [ ! -f "dist/hyui.css" ]; then
+            echo "Error: dist/hyui.css not found"
+            exit 1
+          fi
+          if [ ! -d "dist/types" ]; then
+            echo "Error: dist/types directory not found"
+            exit 1
+          fi
+          echo "All build outputs verified successfully"
+
+      - name: Check bundle size
+        run: |
+          echo "Bundle sizes:"
+          ls -lh dist/hyui.mjs dist/hyui.cjs dist/hyui.css
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: dist/
+          retention-days: 7

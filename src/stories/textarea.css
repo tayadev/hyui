@@ -1,0 +1,96 @@
+@import './variables.css';
+
+.textarea {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.textarea--full-width {
+  width: 100%;
+}
+
+.textarea__label {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.textarea__field {
+  font-family: var(--font-secondary);
+  background-color: var(--color-secondary-dark);
+  color: var(--color-text-secondary);
+  border: var(--border-width-md) solid var(--color-primary-dark);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: var(--transition-default);
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.textarea__field:hover {
+  border-color: var(--color-primary-hover);
+}
+
+.textarea__field:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(252, 224, 111, 0.1);
+}
+
+.textarea__field::placeholder {
+  color: rgba(216, 226, 240, 0.4);
+}
+
+.textarea__field:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  resize: none;
+}
+
+.textarea__field:disabled:hover {
+  border-color: var(--color-primary-dark);
+}
+
+.textarea__field--small {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  min-height: 80px;
+}
+
+.textarea__field--medium {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-md);
+  min-height: 120px;
+}
+
+.textarea__field--large {
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-lg);
+  min-height: 160px;
+}
+
+.textarea__field--error {
+  border-color: #e74c3c;
+}
+
+.textarea__field--error:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.textarea__error {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-xs);
+  color: #e74c3c;
+}
+
+.textarea__helper {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-xs);
+  color: rgba(216, 226, 240, 0.6);
+}

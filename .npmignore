@@ -1,0 +1,44 @@
+# Development files
+src/
+.storybook/
+public/
+
+# Config files
+vite.config.ts
+tsconfig.json
+tsconfig.app.json
+tsconfig.node.json
+tsconfig.lib.json
+eslint.config.js
+vitest.shims.d.ts
+
+# Story files
+*.stories.ts
+*.stories.tsx
+
+# Test files
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+
+# Build artifacts
+node_modules/
+.vite/
+storybook-static/
+
+# Development
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore

@@ -1,0 +1,111 @@
+@import './variables.css';
+
+.card {
+  position: relative;
+  background-color: var(--color-secondary-dark);
+  color: var(--color-text-secondary);
+  border: var(--border-width-md) solid var(--color-primary-dark);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-lg);
+  transition: var(--transition-default);
+  font-family: var(--font-secondary);
+}
+
+.card--clickable {
+  cursor: pointer;
+}
+
+.card--clickable:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.card--clickable:active {
+  transform: translateY(0) scale(var(--scale-hover-card));
+}
+
+.card--highlighted {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary-hover);
+}
+
+.card__header {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-md);
+}
+
+.card__body {
+  position: relative;
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  font-family: var(--font-secondary);
+}
+
+.card__footer {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: var(--border-width-sm) solid var(--color-border);
+  font-size: var(--font-size-xs);
+}
+
+/* Content wrapper */
+.card__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Decals wrapper - always present for bottom corners */
+.card__decals {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Corner decals using pseudo-elements with data URI SVG */
+.card::before,
+.card::after,
+.card__decals::before,
+.card__decals::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  background-image: url('data:image/svg+xml;utf8,<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="4" height="4" transform="rotate(-90 4 8)" fill="url(%23paint0_linear)" fill-opacity="0.75"/><path d="M8.74227e-08 2C3.91404e-08 0.895431 0.895431 3.97973e-07 2 3.49691e-07L10 0L10 2L2 2L2 10L4.37114e-07 10L8.74227e-08 2Z" fill="url(%23paint1_linear)" fill-opacity="0.75"/><defs><linearGradient id="paint0_linear" x1="6" y1="8.97436" x2="6" y2="12" gradientUnits="userSpaceOnUse"><stop stop-color="%23DDC36F"/><stop offset="1" stop-color="%23DFB14A"/></linearGradient><linearGradient id="paint1_linear" x1="2.4359" y1="5" x2="10" y2="5" gradientUnits="userSpaceOnUse"><stop stop-color="%23DDC36F"/><stop offset="1" stop-color="%23DFB14A"/></linearGradient></defs></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+/* Top-left corner */
+.card::before {
+  top: var(--decal-offset);
+  left: var(--decal-offset);
+}
+
+/* Top-right corner */
+.card::after {
+  top: var(--decal-offset);
+  right: var(--decal-offset);
+  transform: rotate(90deg);
+}
+
+/* Bottom-left corner */
+.card__decals::before {
+  bottom: var(--decal-offset);
+  left: var(--decal-offset);
+  transform: rotate(270deg);
+}
+
+/* Bottom-right corner */
+.card__decals::after {
+  bottom: var(--decal-offset);
+  right: var(--decal-offset);
+  transform: rotate(180deg);
+}

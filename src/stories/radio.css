@@ -1,0 +1,124 @@
+@import './variables.css';
+
+.radio {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.radio__input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.radio__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-secondary);
+  color: var(--color-text-secondary);
+}
+
+.radio__circle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-secondary-dark);
+  border: var(--border-width-md) solid var(--color-primary-dark);
+  border-radius: 50%;
+  transition: var(--transition-default);
+  flex-shrink: 0;
+}
+
+.radio__dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.2s ease;
+}
+
+.radio__input:checked ~ .radio__label .radio__dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.radio__input:checked ~ .radio__label .radio__circle {
+  background-color: rgba(252, 224, 111, 0.1);
+  border-color: var(--color-primary);
+}
+
+.radio__label:hover .radio__circle {
+  border-color: var(--color-primary-hover);
+}
+
+.radio__input:focus ~ .radio__label .radio__circle {
+  box-shadow: 0 0 0 3px rgba(252, 224, 111, 0.1);
+}
+
+.radio__input:disabled ~ .radio__label {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.radio__input:disabled ~ .radio__label:hover .radio__circle {
+  border-color: var(--color-primary-dark);
+}
+
+.radio__text {
+  font-size: var(--font-size-md);
+}
+
+/* Size variants */
+.radio--small .radio__circle {
+  width: 16px;
+  height: 16px;
+}
+
+.radio--small .radio__dot {
+  width: 8px;
+  height: 8px;
+}
+
+.radio--small .radio__text {
+  font-size: var(--font-size-sm);
+}
+
+.radio--medium .radio__circle {
+  width: 20px;
+  height: 20px;
+}
+
+.radio--medium .radio__dot {
+  width: 10px;
+  height: 10px;
+}
+
+.radio--medium .radio__text {
+  font-size: var(--font-size-md);
+}
+
+.radio--large .radio__circle {
+  width: 24px;
+  height: 24px;
+}
+
+.radio--large .radio__dot {
+  width: 12px;
+  height: 12px;
+}
+
+.radio--large .radio__text {
+  font-size: var(--font-size-lg);
+}

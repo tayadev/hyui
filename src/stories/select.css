@@ -1,0 +1,118 @@
+@import './variables.css';
+
+.select {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.select--full-width {
+  width: 100%;
+}
+
+.select__label {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.select__wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.select__field {
+  font-family: var(--font-secondary);
+  background-color: var(--color-secondary-dark);
+  color: var(--color-text-secondary);
+  border: var(--border-width-md) solid var(--color-primary-dark);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  padding-right: calc(var(--spacing-md) + 20px);
+  transition: var(--transition-default);
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  appearance: none;
+  cursor: pointer;
+}
+
+.select__field:hover {
+  border-color: var(--color-primary-hover);
+}
+
+.select__field:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(252, 224, 111, 0.1);
+}
+
+.select__field:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.select__field:disabled:hover {
+  border-color: var(--color-primary-dark);
+}
+
+.select__field option {
+  background-color: var(--color-secondary-dark);
+  color: var(--color-text-secondary);
+}
+
+.select__field--small {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  padding-right: calc(var(--spacing-sm) + 20px);
+  font-size: var(--font-size-sm);
+}
+
+.select__field--medium {
+  padding: var(--spacing-sm) var(--spacing-md);
+  padding-right: calc(var(--spacing-md) + 20px);
+  font-size: var(--font-size-md);
+}
+
+.select__field--large {
+  padding: var(--spacing-md) var(--spacing-lg);
+  padding-right: calc(var(--spacing-lg) + 20px);
+  font-size: var(--font-size-lg);
+}
+
+.select__field--error {
+  border-color: #e74c3c;
+}
+
+.select__field--error:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.select__arrow {
+  position: absolute;
+  right: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-primary);
+  font-size: 10px;
+  pointer-events: none;
+  transition: var(--transition-default);
+}
+
+.select__field:focus ~ .select__arrow {
+  color: var(--color-primary-hover);
+}
+
+.select__error {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-xs);
+  color: #e74c3c;
+}
+
+.select__helper {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-xs);
+  color: rgba(216, 226, 240, 0.6);
+}
